@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 import mongoose from "mongoose";
 import authRoutes from "./routes/auth";
 
@@ -11,6 +12,8 @@ mongoose
   .catch((err) => console.log(err));
 
 const app = express();
+
+app.use(cors());
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
